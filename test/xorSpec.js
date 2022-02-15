@@ -2,7 +2,7 @@
 
 const assert = require('chai').assert
 
-const xor = require('../src/util/xor')
+const xor = require('../src/util/xor').default
 
 describe('xor', function () {
   it('should return an xored buffer', function () {

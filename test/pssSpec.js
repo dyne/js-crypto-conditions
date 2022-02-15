@@ -1,6 +1,6 @@
 'use strict'
 
-const Pss = require('../src/crypto/pss')
+const Pss = require('../src/crypto/pss').default
 const assert = require('chai').assert
 const getSaltHelper = require('./helpers/salt').getSaltHelper
 

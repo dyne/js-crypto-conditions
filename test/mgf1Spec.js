@@ -1,6 +1,6 @@
 'use strict'
 
-const Mgf1 = require('../src/crypto/mgf1')
+const Mgf1 = require('../src/crypto/mgf1').default
 const assert = require('chai').assert
 
 describe('Mgf1', function () {

@@ -1,6 +1,6 @@
 'use strict'
 
-const Pem = require('../src/util/pem')
+const Pem = require('../src/util/pem').default
 const assert = require('chai').assert
 
 describe('Pem', function () {

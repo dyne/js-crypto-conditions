@@ -1,7 +1,7 @@
 'use strict'
 
 const assert = require('chai').assert
-const Rsa = require('../src/crypto/rsa')
+const Rsa = require('../src/crypto/rsa').default
 const getSaltHelper = require('./helpers/salt').getSaltHelper
 
 describe('Rsa', function () {
