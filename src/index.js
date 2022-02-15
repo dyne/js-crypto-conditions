@@ -72,6 +72,7 @@ export const fromFulfillmentBinary = Fulfillment.fromBinary.bind(Fulfillment)
 export {
   Condition,
   Fulfillment,
+  Ed25519Sha256,
   PreimageSha256,
   PrefixSha256,
   ThresholdSha256,
