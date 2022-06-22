@@ -30,6 +30,14 @@ export default class ZenroomSha256 extends BaseSha256 {
 
   constructor();
 
+  setScript(script: string): void;
+  setData(data: Record<string, any>): void;
+  setKeys(keys: Record<string, any>): void;
+
+  getScript(): string;
+  getData(): Record<string, any>;
+  getKeys(): Record<string, any>;
+
   parseJson(json: ZenroomSha256Json): void;
 
   private getFingerprintContents(): Buffer;

@@ -20,7 +20,7 @@ import PrefixSha256 from './types/prefix-sha256';
 import ThresholdSha256 from './types/threshold-sha256';
 import RsaSha256 from './types/rsa-sha256';
 import Ed25519Sha256 from './types/ed25519-sha256';
-import ZenroomSha256 from './types/ed25519-sha256';
+import ZenroomSha256 from './types/zenroom-sha256';
 import base64url from './util/base64url';
 
 export { base64url, Condition, Fulfillment, TypeRegistry };

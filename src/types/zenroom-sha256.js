@@ -44,9 +44,22 @@ class ZenroomSha256 extends BaseSha256 {
     this.keys = keys
   }
 
+  getScript () {
+    return this.script
+  }
+
+  getData () {
+    return this.data
+  }
+
+  getKeys () {
+    return this.keys
+  }
+
   parseJson (json) {
-    console.log(json)
-    this.setData(json.data)
+    this.setScript(json.script.toString('utf-8'))
+    this.setData(JSON.parse(json.data.toString('utf-8')))
+    this.setKeys(JSON.parse(json.keys.toString('utf-8')))
   }
 
   /**
@@ -71,8 +84,8 @@ class ZenroomSha256 extends BaseSha256 {
   getAsn1JsonPayload () {
     return {
       script: this.script,
-      data: this.data,
-      keys: this.keys
+      data: JSON.stringify(this.data),
+      keys: JSON.stringify(this.keys)
     }
   }
 
@@ -98,23 +111,7 @@ class ZenroomSha256 extends BaseSha256 {
    * @return {Boolean} Whether this fulfillment is valid.
    */
   validate (message) {
-    if (!Buffer.isBuffer(message)) {
-      throw new TypeError('Message must be a Buffer')
-    }
-
-    // Use native library if available (~60x faster)
-    let result
-    if (ed25519) {
-      result = ed25519.Verify(message, this.signature, this.publicKey)
-    } else {
-      result = sign.detached.verify(bufferToUint8Array(message), bufferToUint8Array(this.signature), bufferToUint8Array(this.publicKey))
-    }
-
-    if (result !== true) {
-      throw new ValidationError('Invalid ed25519 signature')
-    }
-
-    return true
+      throw new Error('Not implemented yet')
   }
 }
 
