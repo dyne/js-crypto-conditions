@@ -7,6 +7,7 @@ export enum Types {
   ThresholdSha256 = 'ThresholdSha256',
   RsaSha256 = 'RsaSha256',
   Ed25519Sha256 = 'Ed25519Sha256',
+  ZenroomSha256 = 'ZenroomSha256',
 }
 
 export enum TypeId {
@@ -15,6 +16,7 @@ export enum TypeId {
   ThresholdSha256 = 2,
   RsaSha256 = 3,
   Ed25519Sha256 = 4,
+  ZenroomSha256 = 5,
 }
 
 export enum TypeName {
@@ -23,6 +25,7 @@ export enum TypeName {
   ThresholdSha256 = 'threshold-sha-256',
   RsaSha256 = 'rsa-sha-256',
   Ed25519Sha256 = 'ed25519-sha-256',
+  ZenroomSha256 = 'zenroom-sha-256',
 }
 
 export enum TypeAsn1Condition {
@@ -31,6 +34,7 @@ export enum TypeAsn1Condition {
   ThresholdSha256 = 'thresholdSha256Condition',
   RsaSha256 = 'rsaSha256Condition',
   Ed25519Sha256 = 'ed25519Sha256Condition',
+  ZenroomSha256 = 'zenroomSha256Condition',
 }
 
 export enum TypeAsn1Fulfillment {
@@ -39,6 +43,7 @@ export enum TypeAsn1Fulfillment {
   ThresholdSha256 = 'thresholdSha256Fulfillment',
   RsaSha256 = 'rsaSha256Fulfillment',
   Ed25519Sha256 = 'ed25519Sha256Fulfillment',
+  ZenroomSha256 = 'zenroomSha256Fulfillment',
 }
 
 export enum TypeCategory {
@@ -47,6 +52,7 @@ export enum TypeCategory {
   ThresholdSha256 = 'compound',
   RsaSha256 = 'simple',
   Ed25519Sha256 = 'simple',
+  ZenroomSha256 = 'simple',
 }
 
 export interface PreimageSha256Json {
@@ -92,6 +98,18 @@ export interface Ed25519Sha256Asn1Json {
   signature: Buffer;
 }
 
+export interface ZenroomSha256Json {
+  type: Types.ZenroomSha256;
+  script: string;
+  data: string;
+  keys: string;
+}
+
+export interface ZenroomSha256Asn1Json {
+  script: Buffer;
+  data: Buffer;
+  keys: Buffer;
+}
 export interface ThresholdSha256Json {
   type: Types.ThresholdSha256;
   threshold: number;
@@ -101,6 +119,7 @@ export interface ThresholdSha256Json {
     | ThresholdSha256Json
     | RsaSha256Json
     | Ed25519Sha256Json
+    | ZenroomSha256Json
   )[];
   subconditions?: ConditionAsn1Json[];
 }

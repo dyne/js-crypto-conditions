@@ -28,3 +28,9 @@ export const Ed25519FingerprintContents = asn1.define('Ed25519FingerprintContent
     this.key('publicKey').implicit(0).octstr()
   )
 })
+
+export const ZenroomFingerprintContents = asn1.define('ZenroomFingerprintContents', function () {
+  this.seq().obj(
+    this.key('script').implicit(0).octstr()
+  )
+})

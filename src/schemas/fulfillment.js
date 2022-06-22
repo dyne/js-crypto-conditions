@@ -37,6 +37,14 @@ export const Ed25519Sha256Fulfillment = asn.define('Ed25519Sha256Fulfillment', f
   )
 })
 
+export const ZenroomSha256Fulfillment = asn.define('Ed25519Sha256Fulfillment', function () {
+  this.seq().obj(
+    this.key('script').implicit(0).octstr(),
+    this.key('data').implicit(1).octstr(),
+    this.key('keys').implicit(2).octstr()
+  )
+})
+
 export const Fulfillment = asn.define('Fulfillment', function () {
   this.choice({
     preimageSha256Fulfillment: this.implicit(0).use(PreimageFulfillment),

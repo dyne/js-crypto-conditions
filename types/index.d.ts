@@ -3,6 +3,7 @@ import Fulfillment from './lib/fulfillment';
 import TypeRegistry from './lib/type-registry';
 import {
   Ed25519Sha256Json,
+  ZenroomSha256Json,
   PrefixSha256Json,
   PreimageSha256Json,
   RsaSha256Json,
@@ -19,6 +20,7 @@ import PrefixSha256 from './types/prefix-sha256';
 import ThresholdSha256 from './types/threshold-sha256';
 import RsaSha256 from './types/rsa-sha256';
 import Ed25519Sha256 from './types/ed25519-sha256';
+import ZenroomSha256 from './types/ed25519-sha256';
 import base64url from './util/base64url';
 
 export { base64url, Condition, Fulfillment, TypeRegistry };
@@ -28,6 +30,7 @@ export {
   PrefixSha256,
   ThresholdSha256,
   Ed25519Sha256,
+  ZenroomSha256,
 };
 
 // Extras
@@ -65,4 +68,5 @@ export function fromJson(
     | ThresholdSha256Json
     | RsaSha256Json
     | Ed25519Sha256Json
+    | ZenroomSha256Json
 ): Fulfillment;

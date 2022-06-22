@@ -1,5 +1,6 @@
 import {
   Ed25519Sha256Json,
+  ZenroomSha256Json,
   PreimageSha256Json,
   PrefixSha256Json,
   RsaSha256Json,
@@ -16,6 +17,7 @@ interface FulfillmentAsn1JsonValueMap {
   [TypeAsn1Fulfillment.ThresholdSha256]: ThresholdSha256Json;
   [TypeAsn1Fulfillment.RsaSha256]: RsaSha256Json;
   [TypeAsn1Fulfillment.Ed25519Sha256]: Ed25519Sha256Json;
+  [TypeAsn1Fulfillment.ZenroomSha256]: ZenroomSha256Json;
 }
 
 export interface FulfillmentAsn1Json<
@@ -45,6 +47,7 @@ export default class Fulfillment {
       | ThresholdSha256Json
       | RsaSha256Json
       | Ed25519Sha256Json
+      | ZenroomSha256Json
   ): Fulfillment;
 
   getTypeId(): TypeId;

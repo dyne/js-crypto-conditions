@@ -9,6 +9,7 @@ import type PrefixSha256 from '../types/prefix-sha256';
 import type ThresholdSha256 from '../types/threshold-sha256';
 import type RsaSha256 from '../types/rsa-sha256';
 import type Ed25519Sha256 from '../types/ed25519-sha256';
+import type ZenroomSha256 from '../types/zenroom-sha256';
 
 export interface RegisteredType {
   typeId: TypeId;
@@ -20,7 +21,8 @@ export interface RegisteredType {
     | PrefixSha256
     | ThresholdSha256
     | RsaSha256
-    | Ed25519Sha256;
+    | Ed25519Sha256
+    | ZenroomSha256;
 }
 
 export default class TypeRegistry {

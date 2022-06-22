@@ -15,7 +15,8 @@
   ],
   "dependencies": {
     "asn1.js": "5.4.1",
-    "tweetnacl": "^1.0.3"
+    "tweetnacl": "^1.0.3",
+    "zenroom": "^2.2.3-bc442c74"
   },
   "optionalDependencies": {
     "ed25519": "0.0.5"

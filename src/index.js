@@ -6,6 +6,7 @@ import PrefixSha256 from './types/prefix-sha256'
 import ThresholdSha256 from './types/threshold-sha256'
 import RsaSha256 from './types/rsa-sha256'
 import Ed25519Sha256 from './types/ed25519-sha256'
+import ZenroomSha256 from './types/zenroom-sha256'
 import base64url from './util/base64url'
 
 const EMPTY_BUFFER = Buffer.alloc(0)
@@ -15,6 +16,7 @@ TypeRegistry.registerType(PrefixSha256)
 TypeRegistry.registerType(ThresholdSha256)
 TypeRegistry.registerType(RsaSha256)
 TypeRegistry.registerType(Ed25519Sha256)
+TypeRegistry.registerType(ZenroomSha256)
 
 export const validateCondition = (serializedCondition) => {
   // Parse condition, throw on error
@@ -75,6 +77,7 @@ export {
   PreimageSha256,
   PrefixSha256,
   ThresholdSha256,
+  ZenroomSha256,
   RsaSha256,
   base64url
 }
