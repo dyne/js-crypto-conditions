@@ -44,6 +44,7 @@ export default class ZenroomSha256 extends BaseSha256 {
 
   getAsn1JsonPayload(): ZenroomSha256Asn1Json;
 
-  validate(message: Buffer): boolean;
+  async sign(message: Buffer, condition_script: string, private_keys: Record<string, any>): Buffer;
+  async validate(message: Buffer): boolean;
 }
 

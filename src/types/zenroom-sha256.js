@@ -9,6 +9,7 @@ import ValidationError from '../errors/validation-error'
 import bufferToUint8Array from '../util/buffer-to-uint-array'
 import { ZenroomFingerprintContents as Asn1ZenroomFingerprintContents } from '../schemas/fingerprint'
 import { zencode_exec } from 'zenroom'
+import {default as stringify} from 'json-stable-stringify';
 
 /**
  * Zenroom: Zenroom condition.
@@ -112,6 +113,44 @@ class ZenroomSha256 extends BaseSha256 {
    */
   validate (message) {
       throw new Error('Not implemented yet')
+  }
+
+
+  async sign(messageStr, condition_script, keyring) {
+    let message = JSON.parse(messageStr.toString('utf-8'))
+    const data = this.data || {}
+    try {
+      data.asset = message.asset.data
+    } catch(e) {}
+    const result = await zencode_exec(condition_script,
+      { keys: JSON.stringify({keyring}),
+        data: JSON.stringify(data) })
+
+    message['metadata'] = message['metadata'] || {}
+
+    Object.assign(message['metadata'], {data: JSON.parse(result.result),
+                                        logs: result.logs})
+    return Buffer.from(JSON.stringify(message))
+
+  }
+
+  async validate(messageStr) {
+    const message = JSON.parse(messageStr.toString('utf-8'))
+    let data = this.data || {}
+    try {
+      data.asset = message.asset.data
+    } catch(e) {}
+    try {
+      data.result = message.metadata.data
+    } catch(e) {}
+
+    const zen = await zencode_exec(this.script,
+                                   {keys: JSON.stringify(this.keys),
+                                   data: JSON.stringify(data)})
+
+    const result = JSON.parse(zen.result)
+    return message.metadata.result &&
+      stringify(message.metadata.result) == stringify(result)
   }
 }
 

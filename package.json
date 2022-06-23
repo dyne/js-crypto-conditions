@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "asn1.js": "5.4.1",
+    "json-stable-stringify": "^1.0.1",
     "tweetnacl": "^1.0.3",
     "zenroom": "^2.2.3-bc442c74"
   },
@@ -29,6 +30,7 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/runtime-corejs3": "^7.17.2",
+    "@types/json-stable-stringify": "^1.0.34",
     "babel-loader": "^8.2.2",
     "buffer": "^6.0.3",
     "chai": "^4.3.3",
